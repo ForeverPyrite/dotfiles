@@ -7,6 +7,8 @@ set -x EDITOR nvim
 # --- PATH Configuration ---
 # Add Cargo's bin directory to the path
 fish_add_path "$HOME/.cargo/bin"
+# Add the local user bin to path as well
+fish_add_path "$HOME/.local/bin"
 
 # --- Tool Initialization ---
 # Starship Prompt
@@ -14,7 +16,7 @@ starship init fish | source
 
 # Zoxide (replaces cd)
 set -x FZF_DEFAULT_OPTS --tmux
-zoxide init fish | source
+zoxide init --cmd cd fish | source
 
 # Autin (rip unencrypted .bash_history)
 atuin init fish | source
@@ -26,12 +28,8 @@ if test -f "$HOME/.fzf.fish"
 end
 
 
-# --- ALIASES (The "Rust-first" way) ---
-# Use 'alias' for simple command replacements.
-# Note the syntax is 'alias new_command "old_command with args"'
+# # Hopefully fixes the length errors in nvim
+# set -gx XDG_CACHE_HOME "/tmp/.nv"
 
-alias ls 'eza --icons --group-directories-first' # a more feature-rich ls
-alias ll 'eza -l --icons --group-directories-first'
-alias la 'eza -la --icons --group-directories-first'
-alias cat 'bat --paging=never' # bat is a better cat
-alias grep 'rg' # ripgrep is a better grep
+
+# Should I go ahead and `tmux start-server` in here?

@@ -23,18 +23,20 @@ DOCKER_INSTALL=false
 [[ " $* " =~ " --docker " ]] && DOCKER_INSTALL=true
 
 # Phased installation package lists
-PREREQ_PACKAGES=(git stow)
+PREREQ_PACKAGES=(git stow) # Git to clone my dotfiles repo, stow to symlink my conf from the cloned repo.
 SYSTEM_PACKAGES=(curl tmux btop fish)
+# Okay yes this may seem complete over-the-top oxidization, however:
 RUST_PACKAGES=(
-  eza
-  bat
-  ripgrep
-  zoxide
-  starship
-  bob-nvim
-  atuin
-  dua-cli
-  cargo-cache
+  eza         # Drop in `ls` replacement, more modern formatting, and even has a built in tree command! (The amount of times I've had to install tree...)
+  bat         # Drop in `cat` replacement, more modern formatting, uhh "cat with wings" is what they said. I agree.
+  ripgrep     # Drop in `grep` replacement, and it's FASTTTTTTTTTTTTTT. Has unironically saved me trying to find a file I misplaced so many times. FASTTTTTTTTTTTTTT.
+  fd-find     # Drop in `find` replacement, and it's also FASTTTTTTTTTTTTTT. Very similar to `ripgrep`, but for file(path)s instead of file contents.
+  zoxide      # Drop in `cd` replacement, can use `fzf` to...well...fuzzy find, and it also just knows where to go
+  starship    # Super customizable cross-shell prompt. Very informative, yet very brief (at least, by default).
+  bob-nvim    # Probably something I'll drop since installing up-to-date neovim seems like an impossible task. I'll figure out something...
+  atuin       # This is kinda like zoxide, but for your shell commands. Pressing the up arrow now shows your entire command history, and you can fuzzy find through them. I imagine it's more secure than .bash_history too.
+  dua-cli     # Disk-usage-analyzer. Plain and simple. For some reason I can't figure out how to find folder sizes (you probably can with `eza`), so this'll do. Useful for my limited storage cloud VPS and stuff.
+  cargo-cache # Actually just used for this script so far. It'll clean up all the, likely useless, sizable compiled dependancies used to build all of this.
 )
 
 # Global variables for system context
@@ -97,6 +99,7 @@ install_build_tools() {
   esac
 }
 
+# lowk the best function tho
 install_rust_toolchain() {
   if command -v cargo &>/dev/null; then info "Rust toolchain is already installed."; else
     info "Installing Rust and Cargo via rustup..."
@@ -131,6 +134,8 @@ run_parallel_installs() {
   local session_name="dotfiles"
 
   # --- Command Definitions ---
+  # Note: if fish is set up in the .bashrc/.profile at this point, tmux sessions will start in fish, which messes up these commands (since they for bash).
+  # Solution: bash -c 'command'
   local cargo_cmd="export PATH='$HOME/.cargo/bin:$PATH'; for pkg in ${RUST_PACKAGES[@]}; do cargo install --locked \$pkg; done && bob use stable && \
     sudo ln -s ~/.local/share/bob/nvim-bob/nvim /usr/bin/nvim && \
     cargo cache -a -y && \  
@@ -149,6 +154,7 @@ run_parallel_installs() {
   tmux split-window -v -t "$session_name:1.2"
 
   # Send commands to their respective panes
+  # Yeah, I talked about `bash -c 'command'`, but I don't wanna test all that right now
   tmux send-keys -t "$session_name:1.1" "$cargo_cmd" C-m
   tmux send-keys -t "$session_name:1.2" "$tpm_cmd" C-m
   tmux send-keys -t "$session_name:1.3" "$fzf_cmd" C-m
@@ -162,7 +168,7 @@ run_parallel_installs() {
   if [ "$EXTENDED_INSTALL" = true ]; then
     tmux new-window -t "$session_name" -n "Desktop"
 
-    # Pane 1: Font Installation (your existing command)
+    # Pane 1: Font Installation
     local font_cmd="mkdir -p ~/.local/share/fonts && curl -fLo f.tar.xz https://github.com/ryanoasis/nerd-fonts/releases/download/v3.2.1/Hack.tar.xz && tar -xf f.tar.xz -C ~/.local/share/fonts && rm f.tar.xz && fc-cache -fv && echo '✅ Fonts installed.'"
     tmux send-keys -t "$session_name:Desktop.1" "$font_cmd" C-m
 
@@ -170,14 +176,17 @@ run_parallel_installs() {
     tmux split-window -h -t "$session_name:Desktop.1"
     tmux split-window -v -t "$session_name:Desktop.2"
 
-    # Pane 2: Change Shell (your existing command)
+    # Pane 2: Change Shell
     local shell_cmd="FISH_PATH=\$(which fish); if ! grep -q \"\$FISH_PATH\" /etc/shells; then echo \"\$FISH_PATH\" | $SUDO_CMD tee -a /etc/shells; fi; $SUDO_CMD chsh -s \"\$FISH_PATH\" \"$USER\" && echo '✅ Shell changed.'"
     tmux send-keys -t "$session_name:Desktop.2" "$shell_cmd" C-m
     warn "The 'chsh' command inside tmux may require your password to complete."
 
     # Pane 3: Install Alacritty
+    # Oh the unfortunate life of this command.
+    # See, you can build alacritty from source via cargo, however, to do that I would need to install all the build dependancies...and like...there's a certain point where it's just not worth it.
     local alacritty_install_cmd
     case "$PM" in
+    # wait where is GUI_PACKAGES defined? is it even defined? oh god.
     brew) alacritty_install_cmd="brew install --cask ${GUI_PACKAGES[*]}" ;;
     apt-get) alacritty_install_cmd="$SUDO_CMD apt-get install -y ${GUI_PACKAGES[*]}" ;;
     dnf) alacritty_install_cmd="$SUDO_CMD dnf install -y ${GUI_PACKAGES[*]}" ;;
@@ -219,7 +228,10 @@ install_rust_toolchain
 success "Core system tools installed."
 
 # Phase 3: Parallel Tool Installation
-run_parallel_installs
+run_parallel_installs # unfortunate part of this is that it'll require your password/sudo auth quite a bit.
+# I think it would be cool to be able to run this script without root, given prerequisites are installed, since cargo installed binaries are stored in `~/.cargo/bin`
+# All the system needs is "git", "stow", and a few build tools. rustup is installed without sudo just fine too.
+# I'm not sure why I'm acting like I'd use this script on a multi-user system: I'd just ssh into my own machines.
 
 # --- Final Message ---
 echo ""

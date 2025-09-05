@@ -1,7 +1,3 @@
-
-
-
-
 # Including this from .bashrc because maybe I'll remember it exists and find a use for it if I put it here.
 # Add an "alert" alias for long running commands.  Use like so:
 #   sleep 10; alert
@@ -25,10 +21,11 @@ alias la="eza -a --icons --group-directories-first"
 alias lt="eza --tree --level=2 --long --git --icons"
 
 # If docker is actually installed on the host...
-if command docker -v &> /dev/null; then
-    alias dc="docker compose"
-    alias dcb="dc build"
-    alias dcu="dc up -d"
-    alias dcl="dc logs -f"
-    alias dcf="dcu && dcl" # Think "docker compose full", yes all of this is peak laziness but this is probably my most used command.
+if command docker -v &>/dev/null; then
+  alias dc="docker compose"
+  alias dcd="dc down"
+  alias dcb="dc build"
+  alias dcu="dc up -d"
+  alias dcl="dc logs -f"
+  alias dcf="dcu && dcl" # Think "docker compose full", yes all of this is peak laziness but this is probably my most used command.
 fi

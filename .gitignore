@@ -1,2 +1,2 @@
-# This is for some silly goofy ssh keys I have going on to push to the repo.
-.github*
+# For some reason, btop has it's log in the .config dir
+*.log
