@@ -63,7 +63,7 @@ That being said, I have actually found these utilities to vastly improve upon th
 
 
 - `bat` - Drop in `cat` replacement, more modern formatting, uhh "cat with wings" is what they said. I agree.
-- `ripgrep` - Drop in `grep` replacement, and it's FASTTTTTTTTTTTTTT. Has unironically saved me trying to find a file I misplaced so many times. FASTTTTTTTTTTTTTT.
+- `ripgrep` - Drop in `grep` replacement that is recursive by default, and it's FASTTTTTTTTTTTTTT. Has unironically saved me trying to find a file I misplaced so many times. FASTTTTTTTTTTTTTT.
 - `eza` - Drop in `ls` replacement, more modern formatting, and even has a built in tree command! (The amount of times I've had to install `tree`...)
 - `zoxide` - Drop in `cd` replacement, can use `fzf` to...well...fuzzy find, and it also just knows where to go. Even without filepaths.
 - `fd-find` - Drop in `find` replacement. Much like `ripgrep`, it is incredibly fast and simply more modernized. The main difference is that `ripgrep` looks through file contents, and `fd` looks for file(path)s.
