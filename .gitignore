@@ -1,2 +1,9 @@
-# For some reason, btop has it's log in the .config dir
+tt.*
+.tests
+doc/tags
+debug
+.repro
+foo.*
 *.log
+data
+.aider*
