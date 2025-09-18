@@ -27,16 +27,17 @@ PREREQ_PACKAGES=(git stow) # Git to clone my dotfiles repo, stow to symlink my c
 SYSTEM_PACKAGES=(curl tmux btop fish)
 # Okay yes this may seem complete over-the-top oxidization, however:
 RUST_PACKAGES=(
-  eza         # Drop in `ls` replacement, more modern formatting, and even has a built in tree command! (The amount of times I've had to install tree...)
-  bat         # Drop in `cat` replacement, more modern formatting, uhh "cat with wings" is what they said. I agree.
-  ripgrep     # Drop in `grep` replacement, and it's FASTTTTTTTTTTTTTT. Has unironically saved me trying to find a file I misplaced so many times. FASTTTTTTTTTTTTTT.
-  fd-find     # Drop in `find` replacement, and it's also FASTTTTTTTTTTTTTT. Very similar to `ripgrep`, but for file(path)s instead of file contents.
-  zoxide      # Drop in `cd` replacement, can use `fzf` to...well...fuzzy find, and it also just knows where to go
-  starship    # Super customizable cross-shell prompt. Very informative, yet very brief (at least, by default).
-  bob-nvim    # Probably something I'll drop since installing up-to-date neovim seems like an impossible task. I'll figure out something...
-  atuin       # This is kinda like zoxide, but for your shell commands. Pressing the up arrow now shows your entire command history, and you can fuzzy find through them. I imagine it's more secure than .bash_history too.
-  dua-cli     # Disk-usage-analyzer. Plain and simple. For some reason I can't figure out how to find folder sizes (you probably can with `eza`), so this'll do. Useful for my limited storage cloud VPS and stuff.
-  cargo-cache # Actually just used for this script so far. It'll clean up all the, likely useless, sizable compiled dependancies used to build all of this.
+  eza             # Drop in `ls` replacement, more modern formatting, and even has a built in tree command! (The amount of times I've had to install tree...)
+  bat             # Drop in `cat` replacement, more modern formatting, uhh "cat with wings" is what they said. I agree.
+  ripgrep         # Drop in `grep` replacement, and it's FASTTTTTTTTTTTTTT. Has unironically saved me trying to find a file I misplaced so many times. FASTTTTTTTTTTTTTT.
+  fd-find         # Drop in `find` replacement, and it's also FASTTTTTTTTTTTTTT. Very similar to `ripgrep`, but for file(path)s instead of file contents.
+  zoxide          # Drop in `cd` replacement, can use `fzf` to...well...fuzzy find, and it also just knows where to go
+  starship        # Super customizable cross-shell prompt. Very informative, yet very brief (at least, by default).
+  bob-nvim        # Probably something I'll drop since installing up-to-date neovim seems like an impossible task. I'll figure out something...
+  tree-sitter-cli # Dependancy for some neovim stuff.
+  atuin           # This is kinda like zoxide, but for your shell commands. Pressing the up arrow now shows your entire command history, and you can fuzzy find through them. I imagine it's more secure than .bash_history too.
+  dua-cli         # Disk-usage-analyzer. Plain and simple. For some reason I can't figure out how to find folder sizes (you probably can with `eza`), so this'll do. Useful for my limited storage cloud VPS and stuff.
+  cargo-cache     # Actually just used for this script so far. It'll clean up all the, likely useless, sizable compiled dependancies used to build all of this.
 )
 
 # Global variables for system context

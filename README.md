@@ -70,6 +70,7 @@ That being said, I have actually found these utilities to vastly improve upon th
 - `atuin` - This is kinda like zoxide, but for your shell commands. Pressing the up arrow now shows your entire command history, and you can fuzzy find through them. I imagine it's more secure than .bash_history too.
 - `dua-cli` - Disk-usage-analyzer. Plain and simple. , so this'll do. Useful for my limited storage cloud VPS and stuff.
 - `starship` - Super customizable cross-shell prompt. Very informative, yet very brief (at least, by default).
+- `tree-sitter-cli` - Dependency for some neovim stuff
 - `bob-nvim` - Neovim manager. Simple as that.
 - `alacritty` - GPU accelerated and extremely customizable terminal emulator
 - `cargo-cache` - Actually just used for this script so far. It'll clean up all the, likely useless, sizable compiled dependencies used to build all of this.
