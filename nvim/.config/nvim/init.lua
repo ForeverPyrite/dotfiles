@@ -18,3 +18,6 @@ if vim.g.neovide then
   vim.g.neovide_detach_on_quit = "always_detach"
   vim.g.neovide_fullscreen = true
 end
+
+-- Unfortunately, the file paths are too long and break things
+vim.loader.enable(false)
