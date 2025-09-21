@@ -1,4 +1,3 @@
-
 # --- Environment Variables ---
 # Set a default editor (used by many command-line tools)
 set -x EDITOR nvim
