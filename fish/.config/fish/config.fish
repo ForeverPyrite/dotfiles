@@ -1,4 +1,3 @@
-# ~/.config/fish/config.fish
 
 # --- Environment Variables ---
 # Set a default editor (used by many command-line tools)
@@ -9,11 +8,10 @@ set -x EDITOR nvim
 fish_add_path "$HOME/.cargo/bin"
 # Add the local user bin to path as well
 fish_add_path "$HOME/.local/bin"
+# Add bob's nvim bin to path
+fish_add_path "$HOME/.local/share/bob/nvim-bin"
 
 # --- Tool Initialization ---
-# Starship Prompt
-starship init fish | source
-
 # Zoxide (replaces cd)
 set -x FZF_DEFAULT_OPTS --tmux
 zoxide init --cmd cd fish | source
@@ -27,9 +25,26 @@ if test -f "$HOME/.fzf.fish"
     source "$HOME/.fzf.fish"
 end
 
+# --- Appearance ---
+# While the GitHub says to use `fish theme save`, I think it's either
+# outdated or slightly incorrect. 
+fish_config theme choose "Catppuccin Mocha"
+# I also want to either swap some of the Catppuccin colors around,
+# or break the Catppuccin theme for my shell since it makes the most
+# sense to be the most personalized.
+# What I normally do is a lot of cyan and purple though, which isn't
+# the most appealing.
+# Perhaps when I get to that I'll customize Starship a little more too...
 
-# # Hopefully fixes the length errors in nvim
-# set -gx XDG_CACHE_HOME "/tmp/.nv"
+# Starship Prompt
+starship init fish | source
 
+# --- Forcing Tmux Upon Thyself ---
+# I keep doing all these things with tmux and looking at tpm plugins,
+# yet for some reason I'm not always using it
 
-# Should I go ahead and `tmux start-server` in here?
+# Making it a varible just in case I wanna change it some day
+set DEFAULT_SESSION home
+if status is-interactive && not set -q TMUX
+    tmux attach -t $DEFAULT_SESSION || tmux new-session -s $DEFAULT_SESSION
+end

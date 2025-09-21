@@ -5,20 +5,6 @@
 # Palettes must be defined _after_ this line
 palette = "catppuccin_mocha"
 
-# Starship modules
-[character]
-# I think I like mauve more than peach...might change it
-success_symbol = "[[󰄛](green) ❯](mauve)"
-error_symbol = "[[󰄛](red) ❯](mauve)"
-vimcmd_symbol = "[󰄛 ❮](subtext1)" # For use with zsh-vi-mode
-
-[git_branch]
-style = "bold mauve"
-
-[directory]
-truncation_length = 4
-style = "bold lavender"
-
 # Palette definitions
 [palettes.catppuccin_mocha]
 rosewater = "#f5e0dc"
@@ -48,3 +34,221 @@ base = "#1e1e2e"
 mantle = "#181825"
 crust = "#11111b"
 
+# Starship modules
+[character]
+# I think I like mauve more than peach...might change it
+success_symbol = "[[󰄛](green) ❯](mauve)"
+error_symbol = "[[󰄛](red) ❯](mauve)"
+# For use with zsh-vi-mode (but I don't use zsh)
+vimcmd_symbol = "[󰄛 ❮](subtext1)"
+
+[directory]
+truncation_length = 4
+style = "bold lavender"
+read_only = " 󰌾"
+
+[git_branch]
+symbol = " "
+style = "bold mauve"
+
+[git_status]
+# See I lied the idea, but it wasn't executed all that well
+# Need to make sure the icons fit well together...
+# conflicted = ''
+# ahead = '⇡${count}'
+# behind = '⇣${count}'
+# diverged = '⇕⇡${ahead_count}⇣${behind_count}'
+# up_to_date = '✓'
+# untracked = '󱀶'
+# stashed = '📦'
+# modified = ''
+# staged = '[++\($count\)](green)'
+# renamed = ''
+# deleted = '🗑'
+
+[aws]
+symbol = "  "
+
+[buf]
+symbol = " "
+
+[bun]
+symbol = " "
+
+[c]
+symbol = " "
+
+[cpp]
+symbol = " "
+
+[cmake]
+symbol = " "
+
+[conda]
+symbol = " "
+
+[crystal]
+symbol = " "
+
+[dart]
+symbol = " "
+
+[deno]
+symbol = " " # uh...nice?
+
+[docker_context]
+symbol = " "
+
+[elixir]
+symbol = " "
+
+[elm]
+symbol = " "
+
+[fennel]
+symbol = " "
+
+[fossil_branch]
+symbol = " "
+
+[gcloud]
+symbol = "  "
+
+[git_commit]
+tag_symbol = '  '
+
+[golang]
+symbol = " "
+
+[guix_shell]
+symbol = " "
+
+[haskell]
+symbol = " "
+
+[haxe]
+symbol = " "
+
+[hg_branch]
+symbol = " "
+
+[hostname]
+ssh_symbol = " "
+
+[java]
+symbol = " "
+
+[julia]
+symbol = " "
+
+[kotlin]
+symbol = " "
+
+[lua]
+symbol = " "
+
+[memory_usage]
+symbol = "󰍛 "
+
+[meson]
+symbol = "󰔷 "
+
+[nim]
+symbol = "󰆥 "
+
+[nix_shell]
+symbol = " "
+
+[nodejs]
+symbol = " "
+
+[ocaml]
+symbol = " "
+
+[os.symbols]
+Alpaquita = " "
+Alpine = " "
+AlmaLinux = " "
+Amazon = " "
+Android = " "
+Arch = " "
+Artix = " "
+CachyOS = " "
+CentOS = " "
+Debian = " "
+DragonFly = " "
+Emscripten = " "
+EndeavourOS = " "
+Fedora = " "
+FreeBSD = " "
+Garuda = "󰛓 "
+Gentoo = " "
+HardenedBSD = "󰞌 "
+Illumos = "󰈸 "
+Kali = " "
+Linux = " "
+Mabox = " "
+Macos = " "
+Manjaro = " "
+Mariner = " "
+MidnightBSD = " "
+Mint = " "
+NetBSD = " "
+NixOS = " "
+Nobara = " "
+OpenBSD = "󰈺 "
+openSUSE = " "
+OracleLinux = "󰌷 "
+Pop = " "
+Raspbian = " "
+Redhat = " "
+RedHatEnterprise = " "
+RockyLinux = " "
+Redox = "󰀘 "
+Solus = "󰠳 "
+SUSE = " "
+Ubuntu = " "
+Unknown = " "
+Void = " "
+Windows = "󰍲 "
+
+[package]
+symbol = "󰏗 "
+
+[perl]
+symbol = " "
+
+[php]
+symbol = " "
+
+[pijul_channel]
+symbol = " "
+
+[pixi]
+symbol = "󰏗 "
+
+[python]
+symbol = " "
+
+[rlang]
+symbol = "󰟔 "
+
+[ruby]
+symbol = " "
+
+[rust]
+# I think I like ferris more
+symbol = " "
+# symbol = "󱘗 "
+
+[scala]
+symbol = " "
+
+[swift]
+symbol = " "
+
+[zig]
+symbol = " "
+
+[gradle]
+symbol = " "
