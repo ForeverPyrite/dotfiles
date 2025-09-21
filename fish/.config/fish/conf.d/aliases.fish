@@ -1,3 +1,7 @@
+# Because lowkey typing "exti" and then "exit" and having
+# nvim hang for a sec a lil annoying
+alias exit "exit 0"
+
 # ------------------------------------------------------------------------------
 # Core "Rust-first" Command Replacements
 # ------------------------------------------------------------------------------
@@ -23,7 +27,7 @@ alias la "eza -a --icons --group-directories-first"
 alias lt "eza --tree --level=2 --long --git --icons"
 
 # tree: deadass replacing the tree command
-alias tree "eza -T"
+alias tree "eza -T --git --icons"
 
 # ------------------------------------------------------------------------------
 # Context-Aware Aliases (Docker)
