@@ -4,12 +4,14 @@ normal = { family = "Hack Nerd Font Mono", style = "Regular" }
 bold = { family = "Hack Nerd Font Mono", style = "Bold" }
 italic = { family = "Hack Nerd Font Mono", style = "Italic" }
 # There is no winning with this stupid ass monitor...
-size = 14.0
+# Yeah I need some kind of size aware resizing low key.
+size = 10.0
 
 [window]
 decorations = "None"
-opacity = 0.85
-startup_mode = "Fullscreen"
+# Doesn't make very much sense with niri as it stands
+# opacity = 0.85
+# startup_mode = "Fullscreen"
 
 [terminal.shell]
 program = "/usr/bin/fish"
