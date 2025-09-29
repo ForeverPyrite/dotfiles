@@ -45,7 +45,7 @@ starship init fish | source
 # with the env of the tty instead of the wayland session is really
 # annoying tbh
 
-if tty | string match --quiet --regex '^/dev/tty[0-9]+$'
+if not tty | string match --quiet --regex '^/dev/tty[0-9]+$'
     # Making it a varible just in case I wanna change it some day
     set DEFAULT_SESSION home
     if status is-interactive && not set -q TMUX
