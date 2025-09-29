@@ -40,9 +40,15 @@ starship init fish | source
 # --- Forcing Tmux Upon Thyself ---
 # I keep doing all these things with tmux and looking at tpm plugins,
 # yet for some reason I'm not always using it
+#
+# Should only activate in a terminal emulator though, since it starting
+# with the env of the tty instead of the wayland session is really
+# annoying tbh
 
-# Making it a varible just in case I wanna change it some day
-set DEFAULT_SESSION home
-if status is-interactive && not set -q TMUX
-    tmux attach -t $DEFAULT_SESSION || tmux new-session -s $DEFAULT_SESSION
+if tty | string match --quiet --regex '^/dev/tty[0-9]+$'
+    # Making it a varible just in case I wanna change it some day
+    set DEFAULT_SESSION home
+    if status is-interactive && not set -q TMUX
+        tmux attach -t $DEFAULT_SESSION || tmux new-session -s $DEFAULT_SESSION
+    end
 end
