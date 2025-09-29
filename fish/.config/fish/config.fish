@@ -12,7 +12,6 @@ fish_add_path "$HOME/.local/share/bob/nvim-bin"
 
 # --- Tool Initialization ---
 # Zoxide (replaces cd)
-set -x FZF_DEFAULT_OPTS --tmux
 zoxide init --cmd cd fish | source
 
 # Autin (rip unencrypted .bash_history)
