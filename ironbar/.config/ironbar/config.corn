@@ -15,7 +15,7 @@ let {
 
     $launcher = {
         type = "launcher"
-        favorites = ["firefox" "discord" "steam"]
+        // favorites = ["firefox" "discord" "steam"]
         show_names = false
         show_icons = true
     }
@@ -45,19 +45,19 @@ let {
     $sys_info = {
         type = "sys_info"
 
-        interval.memory = 30
+        interval.memory = 15
         interval.cpu = 1
-        interval.temps = 5
-        interval.disks = 300
+        // interval.temps = 5
+        // interval.disks = 300
         interval.networks = 3
 
         format = [
-        " {cpu_percent}% | {cpu_frequency} GHz | {temp_c@CPUTIN}°C"
-        " {memory_used} / {memory_total} GB ({memory_available} {swap_used} / {swap_total} GB ({swap_free} | {swap_percent}%)"
-        "󰋊 {disk_used#T@/:.1} / {disk_total#T@/:.1} TB ({disk_percent@/}%) | {disk_read} / {disk_write} MB/s"
-        "󰓢 {net_down@enp39s0} / {net_up@enp39s0} Mbps"
+        " {cpu_percent}% "
+        " {memory_used} / {memory_total} GB"
+        // "󰋊 {disk_used#T@/:.1} / {disk_total#T@/:.1} TB ({disk_percent@/}%) | {disk_read} / {disk_write} MB/s"
+        "󰓢 {net_down@wlan0} / {net_up@wlan0} Mbps"
         // "󰖡 {load_average1} | {load_average5} | {load_average15}"
-        "󰥔 {uptime}"
+        // "󰥔 {uptime}"
         ]
     }
 
@@ -108,12 +108,13 @@ let {
     // -- end custom --
 
     $left = [ $workspaces $launcher ]
-    $right = [ $sys_info $volume $clipboard $power_menu $clock $notifications ]
+    $right = [ $sys_info $clipboard $power_menu $clock $notifications ]
 }
 in {
     anchor_to_edges = true
     position = "top"
     icon_theme = "Paper"
+    height = 32
 
     start = $left
     end = $right
