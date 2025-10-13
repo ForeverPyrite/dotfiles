@@ -24,8 +24,8 @@ key = "F11"
 mods = "None"
 
 [env]
-TERM = "xterm-256color"
-
+TERM = "alacritty"
+LC_CTYPE = "en_US.UTF-8"
 
 # Catppuccin theme
 [colors.primary]

@@ -4,6 +4,10 @@ require("config.lazy")
 -- Unfortunately, the file paths are too long and break things
 vim.loader.enable(false)
 
+-- Colors for Neovide & Tmux
+vim.o.termguicolors = true
+vim.cmd("colorscheme catppuccin-mocha")
+
 -- Clipboard (hopefully, right now my clipboard provider is tmux ig so...)
 vim.o.clipboard = "unnamedplus"
 vim.api.nvim_set_keymap("", "<D-v>", "+p<CR>", { noremap = true, silent = true })

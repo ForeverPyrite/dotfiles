@@ -6,13 +6,14 @@
         ],
         "position": "center",
         "sortByMostUsed": true,
+        "terminalCommand": "xterm -e",
         "useApp2Unit": false
     },
     "audio": {
         "cavaFrameRate": 60,
         "mprisBlacklist": [
         ],
-        "preferredPlayer": "",
+        "preferredPlayer": "spotify",
         "visualizerType": "linear",
         "volumeOverdrive": false,
         "volumeStep": 5
@@ -47,9 +48,11 @@
                 },
                 {
                     "autoHide": true,
+                    "colorizeIcons": false,
                     "id": "ActiveWindow",
                     "scrollingMode": "hover",
-                    "showIcon": true
+                    "showIcon": true,
+                    "width": 145
                 },
                 {
                     "autoHide": true,
@@ -65,6 +68,9 @@
                     "id": "ScreenRecorder"
                 },
                 {
+                    "blacklist": [
+                    ],
+                    "colorizeIcons": false,
                     "id": "Tray"
                 },
                 {
@@ -92,10 +98,11 @@
                     "id": "Brightness"
                 },
                 {
+                    "customFont": "",
                     "formatHorizontal": "HH:mm ddd, MMM dd",
                     "formatVertical": "HH mm - dd MM",
                     "id": "Clock",
-                    "useMonospacedFont": true,
+                    "useCustomFont": false,
                     "usePrimaryColor": true
                 },
                 {
@@ -112,17 +119,45 @@
     },
     "colorSchemes": {
         "darkMode": true,
+        "generateTemplatesForPredefined": true,
         "matugenSchemeType": "scheme-rainbow",
         "predefinedScheme": "Catppuccin",
         "useWallpaperColors": false
     },
+    "controlCenter": {
+        "position": "close_to_bar_button",
+        "quickSettingsStyle": "compact",
+        "widgets": {
+            "quickSettings": [
+                {
+                    "id": "WiFi"
+                },
+                {
+                    "id": "Bluetooth"
+                },
+                {
+                    "id": "Notifications"
+                },
+                {
+                    "id": "ScreenRecorder"
+                },
+                {
+                    "id": "PowerProfile"
+                },
+                {
+                    "id": "WallpaperSelector"
+                }
+            ]
+        }
+    },
     "dock": {
-        "autoHide": false,
         "backgroundOpacity": 1,
-        "exclusive": false,
+        "colorizeIcons": false,
+        "displayMode": "always_visible",
         "floatingRatio": 1,
         "monitors": [
         ],
+        "onlySameOutput": true,
         "pinnedApps": [
         ]
     },
@@ -130,6 +165,7 @@
         "animationDisabled": false,
         "animationSpeed": 1.1500000000000001,
         "avatarImage": "/home/foreverpyrite/Pictures/Pysprite/ForeverPyrite Head.png",
+        "compactLockScreen": false,
         "dimDesktop": true,
         "forceBlackScreenCorners": false,
         "radiusRatio": 1,
@@ -142,23 +178,10 @@
         "wallpaperChange": ""
     },
     "location": {
-        "name": "New York",
+        "name": "Dayton, OH",
         "showWeekNumberInCalendar": false,
         "use12hourFormat": false,
         "useFahrenheit": true
-    },
-    "matugen": {
-        "enableUserTemplates": false,
-        "foot": false,
-        "fuzzel": false,
-        "ghostty": false,
-        "gtk3": false,
-        "gtk4": false,
-        "kitty": false,
-        "pywalfox": false,
-        "qt5": false,
-        "qt6": false,
-        "vesktop": false
     },
     "network": {
         "wifiEnabled": true
@@ -170,13 +193,13 @@
         "forced": true,
         "manualSunrise": "06:30",
         "manualSunset": "18:30",
-        "nightTemp": "4000"
+        "nightTemp": "3000"
     },
     "notifications": {
         "alwaysOnTop": false,
         "criticalUrgencyDuration": 15,
         "doNotDisturb": false,
-        "lastSeenTs": 1759199713000,
+        "lastSeenTs": 1759414853000,
         "location": "top_right",
         "lowUrgencyDuration": 3,
         "monitors": [
@@ -185,6 +208,7 @@
         "respectExpireTimeout": false
     },
     "osd": {
+        "alwaysOnTop": false,
         "autoHideMs": 2000,
         "enabled": true,
         "location": "top_right",
@@ -203,15 +227,36 @@
         "videoSource": "portal"
     },
     "settingsVersion": 12,
+    "templates": {
+        "discord": false,
+        "discord_armcord": false,
+        "discord_dorion": false,
+        "discord_equibop": false,
+        "discord_lightcord": false,
+        "discord_vesktop": false,
+        "discord_webcord": false,
+        "enableUserTemplates": false,
+        "foot": false,
+        "fuzzel": false,
+        "ghostty": false,
+        "gtk": false,
+        "kcolorscheme": false,
+        "kitty": false,
+        "pywalfox": false,
+        "qt": false
+    },
     "ui": {
-        "fontBillboard": "Inter",
         "fontDefault": "NimbusSansDOT Nerd Font",
+        "fontDefaultScale": 1,
         "fontFixed": "Hack Nerd Font Mono",
+        "fontFixedScale": 1,
         "idleInhibitorEnabled": false,
         "monitorsScaling": [
-        ]
+        ],
+        "tooltipsEnabled": true
     },
     "wallpaper": {
+        "defaultWallpaper": "/etc/xdg/quickshell/noctalia-shell/Assets/Wallpaper/noctalia.png",
         "directory": "/home/foreverpyrite/Pictures/Wallpapers",
         "enableMultiMonitorDirectories": false,
         "enabled": false,
