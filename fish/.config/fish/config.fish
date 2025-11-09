@@ -42,10 +42,10 @@ starship init fish | source
 # yet for some reason I'm not always using it
 #
 # Should only activate in a terminal emulator though, since it starting
-# with the env of the tty instead of the wayland session is really
-# annoying tbh
+# with the env of the tty or neovim instead of the wayland session is 
+# really annoying tbh
 
-if not tty | string match --quiet --regex '^/dev/tty[0-9]+$'
+if not tty | string match --quiet --regex '^/dev/tty[0-9]+$' || set -q TMUX || set -q NVIM
     # Making it a varible just in case I wanna change it some day
     set DEFAULT_SESSION home
     if status is-interactive && not set -q TMUX
